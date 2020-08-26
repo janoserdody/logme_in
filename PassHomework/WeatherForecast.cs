@@ -1,6 +1,6 @@
 using System;
 
-namespace pass_homework
+namespace PassHomework
 {
     public class WeatherForecast
     {

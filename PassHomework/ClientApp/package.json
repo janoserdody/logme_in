@@ -1,11 +1,11 @@
 {
-  "name": "pass_homework",
+  "name": "passhomework",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:ssr": "ng run pass_homework:server:dev",
+    "build:ssr": "ng run PassHomework:server:dev",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

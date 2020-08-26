@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pass_homework": {
+    "PassHomework": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pass_homework:build"
+            "browserTarget": "PassHomework:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pass_homework:build:production"
+              "browserTarget": "PassHomework:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pass_homework:build"
+            "browserTarget": "PassHomework:build"
           }
         },
         "test": {
@@ -111,7 +111,7 @@
         }
       }
     },
-    "pass_homework-e2e": {
+    "PassHomework-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -119,7 +119,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "pass_homework:serve"
+            "devServerTarget": "PassHomework:serve"
           }
         },
         "lint": {
@@ -132,5 +132,5 @@
       }
     }
   },
-  "defaultProject": "pass_homework"
+  "defaultProject": "PassHomework"
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace pass_homework.Controllers
+namespace PassHomework.Controllers
 {
     [ApiController]
     [Route("[controller]")]
