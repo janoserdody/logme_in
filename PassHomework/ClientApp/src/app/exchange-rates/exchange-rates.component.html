@@ -1,6 +1,6 @@
 <div [hidden]="!exchangeRates">
     <div *ngIf="exchangeRates">
-        <h1>Echange rates for the day: {{exchangeRates.date}}</h1>
+        <h1>Echange rates for the day: {{exchangeRates.date | date:'mediumDate'}}</h1>
         <h2>Base currency: {{exchangeRates.base}}</h2>
     </div>
     <div class="mat-elevation-z8 w-50">
