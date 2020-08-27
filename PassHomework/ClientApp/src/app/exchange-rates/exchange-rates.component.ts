@@ -4,6 +4,7 @@ import { ExchangeRates, Rate } from '../models/exchange-rates';
 import { finalize } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-exchange-rates',
@@ -16,6 +17,7 @@ export class ExchangeRatesComponent implements OnInit {
   tableDataSource: MatTableDataSource<Rate> = undefined;
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   constructor(private exchangeRatesService: ExchangeRatesService) { }
 
@@ -26,6 +28,7 @@ export class ExchangeRatesComponent implements OnInit {
         this.exchangeRates = rates;
         this.tableDataSource = new MatTableDataSource(rates.rates);
         this.tableDataSource.sort = this.sort;
+        this.tableDataSource.paginator = this.paginator;
       });
   }
 

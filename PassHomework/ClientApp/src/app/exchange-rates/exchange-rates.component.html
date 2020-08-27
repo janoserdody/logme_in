@@ -3,18 +3,22 @@
         <h1>Echange rates for the day: {{exchangeRates.date}}</h1>
         <h2>Base currency: {{exchangeRates.base}}</h2>
     </div>
-    <table mat-table matSort class="mat-elevation-z8" [dataSource]="tableDataSource">
-        <ng-container matColumnDef="currency">
-            <th mat-header-cell mat-sort-header *matHeaderCellDef> Currency </th>
-            <td mat-cell *matCellDef="let rate"> {{rate.currency}} </td>
-        </ng-container>
+    <div class="mat-elevation-z8 w-50">
+        <table mat-table matSort [dataSource]="tableDataSource" class="w-100">
+            <ng-container matColumnDef="currency">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Currency </th>
+                <td mat-cell *matCellDef="let rate"> {{rate.currency}} </td>
+            </ng-container>
 
-        <ng-container matColumnDef="rate">
-            <th mat-header-cell mat-sort-header *matHeaderCellDef> Rate </th>
-            <td mat-cell *matCellDef="let rate"> {{rate.rate}} </td>
-        </ng-container>
+            <ng-container matColumnDef="rate">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Rate </th>
+                <td mat-cell *matCellDef="let rate"> {{rate.rate}} </td>
+            </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="['currency','rate']"></tr>
-        <tr mat-row *matRowDef="let myRowData; columns: ['currency','rate']"></tr>
-    </table>
+            <tr mat-header-row *matHeaderRowDef="['currency','rate']"></tr>
+            <tr mat-row *matRowDef="let myRowData; columns: ['currency','rate']"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
+    </div>
 </div>
