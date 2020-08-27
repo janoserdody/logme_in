@@ -6,6 +6,9 @@ using PassHomework.Models;
 
 namespace PassHomework.Services.CurrencyExchange
 {
+    /// <summary>
+    /// Uses https://exchangeratesapi.io/
+    /// </summary>
     public class CurrencyExchangeService : ICurrencyExchangeService
     {
         private readonly IHttpClientFactory _httpClientFactory;
