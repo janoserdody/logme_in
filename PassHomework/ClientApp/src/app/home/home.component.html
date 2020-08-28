@@ -1,14 +1,56 @@
-<h1>Hello, world!</h1>
-<p>Welcome to your new single-page application, built with:</p>
-<ul>
-  <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
-  <li><a href='https://angular.io/'>Angular</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>
-  <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
-</ul>
-<p>To help you get started, we've also set up:</p>
-<ul>
-  <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>
-  <li><strong>Angular CLI integration</strong>. In development mode, there's no need to run <code>ng serve</code>. It runs in the background automatically, so your client-side resources are dynamically built on demand and the page refreshes when you modify any file.</li>
-  <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and your <code>dotnet publish</code> configuration automatically invokes <code>ng build</code> to produce minified, ahead-of-time compiled JavaScript files.</li>
-</ul>
-<p>The <code>ClientApp</code> subdirectory is a standard Angular CLI application. If you open a command prompt in that directory, you can run any <code>ng</code> command (e.g., <code>ng test</code>), or use <code>npm</code> to install extra packages into it.</p>
+<h1>Hello candidate!</h1>
+
+<p>
+    This solution was created by the PASS team @ LogMeIn to measure your hands-on skills at ASP.NET Core and Angular.
+</p>
+
+<p>
+    It's a slightly modified version of the <a
+        href="https://docs.microsoft.com/en-us/aspnet/core/client-side/spa/angular?view=aspnetcore-3.1&tabs=visual-studio">Angular
+        project template</a>, you can
+    follow the link to find details on how to run/debug or modify the app, but hopefully it's pretty straightforward. Just make sure you have
+    <a href="https://www.npmjs.com/get-npm">npm</a> and the <a href="https://dotnet.microsoft.com/download">.NET Core SDK</a> installed.
+</p>
+
+<p>
+    We also added the <a href="https://material.angular.io/">Angular Material</a> npm package, Angular's popular set of UI components.
+</p>
+
+<h2> Context</h2>
+
+<p>
+    Imagine this app is used by your company's sales team to check the current day's currency exchange rates. It uses
+    <a href="https://exchangeratesapi.io/">a public API</a> to get
+    the latest exchange rates using EUR as base, which are then displayed in simple, sortable, paginated table.
+</p>
+
+<h2>Tasks</h2>
+
+<p>
+    We prepared 2(+1) tasks that should not take up a lot of your time (max 3 hours), you will find them below.
+</p>
+
+<h3>Getting started</h3>
+
+<p>
+    You should fork this repository to your own account on GitHub. Start working in your own forked repository. Please separate the solution
+    for each task either by putting all changes in a single commit or in separate commits in a single branch.
+</p>
+
+<h4>Task #1</h4>
+
+<p>
+    Your first task is to make the base currency changeable. If a user clicks on a currency in the table, the rates should be loaded using the
+    selected currency as base.
+</p>
+
+<h4>Task #2</h4>
+
+<p>
+    Your second task is to cache the response of the API in a memory cache to improve performance and reduce load on the exchange rate API. Do
+    not worry about timezones, you can assume all of our users are in UTC 🙂.
+</p>
+
+<h4>Bonus task / bug hunt</h4>
+
+<p>There is a small memory leakage when requesting the exchange rates. Find it, and patch it.</p>
