@@ -18,7 +18,7 @@ We prepared 2(+1) tasks that should not take up a lot of your time (max 3 hours)
 
 ### Getting started
 
-You should fork this repository to your own account on GitHub. Start working in your own forked repository. Please separate the solution for each task either by putting all changes in a single commit or in separate commits in a single branch.
+You should [duplicate this repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/duplicating-a-repository) to your own account on GitHub. Start working in your own duplicate repository, then we will take a look at your solution together during the technical interview. Please separate the solution for each task either by putting all changes in a single commit or in separate commits in a single branch.
 
 #### Task #1
 
