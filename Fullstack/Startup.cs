@@ -22,6 +22,7 @@ namespace PassHomework
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient();
+            services.AddMemoryCache();
             services.AddSingleton<ICurrencyExchangeService, CurrencyExchangeService>();
 
             services.AddControllersWithViews();
