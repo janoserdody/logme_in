@@ -15,6 +15,7 @@ namespace PassHomework.Services.CurrencyExchange
         private readonly ILogger<CurrencyExchangeService> _logger;
 
         private const string LatestExchangeRatesEndpoint = "https://api.exchangeratesapi.io/latest";
+        private const string NewBaseExchangeRatesEndpoint = "https://api.exchangeratesapi.io/latest?base=";
         private static readonly JsonSerializerOptions CamelCaseOptions = new JsonSerializerOptions
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase
@@ -47,6 +48,32 @@ namespace PassHomework.Services.CurrencyExchange
             catch (JsonException exception)
             {
                 _logger.LogError(exception, $"Error deserializing JSON response of '{LatestExchangeRatesEndpoint}'");
+
+                return null;
+            }
+        }
+
+        public async Task<ExchangeRates> GetNewBase(string currency)
+        {
+            using var client = _httpClientFactory.CreateClient();
+
+            var response = await client.GetAsync(NewBaseExchangeRatesEndpoint + currency);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogError($"Error calling '{NewBaseExchangeRatesEndpoint + currency}'. StatusCode: {response.StatusCode}");
+
+                return null;
+            }
+            var responseStream = await response.Content.ReadAsStreamAsync();
+
+            try
+            {
+                return await JsonSerializer.DeserializeAsync<ExchangeRates>(responseStream, CamelCaseOptions);
+            }
+            catch (JsonException exception)
+            {
+                _logger.LogError(exception, $"Error deserializing JSON response of '{NewBaseExchangeRatesEndpoint + currency}'");
 
                 return null;
             }

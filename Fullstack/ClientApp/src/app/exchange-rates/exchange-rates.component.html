@@ -7,16 +7,16 @@
         <table mat-table matSort [dataSource]="tableDataSource" class="w-100">
             <ng-container matColumnDef="currency">
                 <th mat-header-cell mat-sort-header *matHeaderCellDef> Currency </th>
-                <td mat-cell *matCellDef="let rate"> {{rate.currency}} </td>
+                <td mat-cell *matCellDef="let rate" (click)="getNewBase(rate.currency)"> {{rate.currency}} </td>
             </ng-container>
 
             <ng-container matColumnDef="rate">
                 <th mat-header-cell mat-sort-header *matHeaderCellDef> Rate </th>
-                <td mat-cell *matCellDef="let rate"> {{rate.rate}} </td>
+                <td mat-cell *matCellDef="let rate" (click)="getNewBase(rate.currency)"> {{rate.rate}} </td>
             </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="['currency','rate']"></tr>
-            <tr mat-row *matRowDef="let myRowData; columns: ['currency','rate']"></tr>
+            <tr mat-header-row *matHeaderRowDef="['currency','rate']" ></tr>
+            <tr mat-row *matRowDef="let myRowData; columns: ['currency','rate']" ></tr>
         </table>
 
         <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>

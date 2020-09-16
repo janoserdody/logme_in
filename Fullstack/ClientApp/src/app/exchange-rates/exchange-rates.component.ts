@@ -5,6 +5,7 @@ import { finalize } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { NewBaseService } from '../services/new-base-currency.service';
 
 @Component({
   selector: 'app-exchange-rates',
@@ -15,11 +16,12 @@ export class ExchangeRatesComponent implements OnInit {
 
   exchangeRates: ExchangeRates = undefined;
   tableDataSource: MatTableDataSource<Rate> = undefined;
+  currency: string = undefined;
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  constructor(private exchangeRatesService: ExchangeRatesService) { }
+  constructor(private exchangeRatesService: ExchangeRatesService, private newBaseService: NewBaseService) { }
 
   ngOnInit() {
     const subscription = this.exchangeRatesService.getLatestExchangeRates()
@@ -32,4 +34,16 @@ export class ExchangeRatesComponent implements OnInit {
       });
   }
 
+  getNewBase(currency:string){
+    this.currency = currency;
+
+    const subscriptionBase = this.newBaseService.getNewBase(this.currency)
+      .pipe(finalize(() => subscriptionBase.unsubscribe()))
+      .subscribe((rates2: ExchangeRates) => {
+        this.exchangeRates = rates2;
+        this.tableDataSource = new MatTableDataSource(rates2.rates);
+        this.tableDataSource.sort = this.sort;
+        this.tableDataSource.paginator = this.paginator;
+      });
+  }
 }

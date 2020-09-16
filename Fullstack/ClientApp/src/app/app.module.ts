@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { NewBaseService } from './services/new-base-currency.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSortModule,
     MatPaginatorModule
   ],
-  providers: [ExchangeRatesService],
+  providers: [ExchangeRatesService, NewBaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
